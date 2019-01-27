@@ -110,13 +110,64 @@ string Card::get_spanish_rank() const {
 // Accessor: returns a string with the suit of the card in English 
 // This is just a stub! Modify it to your liking.
 string Card::get_english_suit() const {
-    return "";
+    string eng_suit;
+    switch (suit)
+    {
+    case OROS:
+        eng_suit = "diamonds";
+        break;
+    case COPAS:
+        eng_suit = "clubs";
+        break;
+    case ESPADAS:
+        eng_suit = "spades";
+        break;
+    case BASTOS:
+        eng_suit = "heart";
+        break;
+    }
+    return eng_suit;
+
 }
 
 // Accessor: returns a string with the rank of the card in English 
 // This is just a stub! Modify it to your liking.
 string Card::get_english_rank() const {
-    return "";
+    string eng_rank;
+    switch (rank)
+    {
+    case AS:
+        eng_rank = "Ace";
+        break;
+    case DOS:
+        eng_rank = "Two";
+        break;
+    case TRES:
+        eng_rank = "Three";
+        break;
+    case CUATRO:
+        eng_rank = "Four";
+        break;
+    case CINCO:
+        eng_rank = "Five";
+        break;
+    case SEIS:
+        eng_rank = "Six";
+        break;
+    case SIETE:
+        eng_rank = "Seven";
+        break;
+    case SOTA:
+        eng_rank = "Jack";
+        break;
+    case CABALLO:
+        eng_rank = "Queen";
+        break;
+    case REY:
+        eng_rank = "King";
+        break;
+    }
+    return eng_rank;
 }
 
 
@@ -142,7 +193,32 @@ Hand class
 
 
 
+
+
+
 /* *************************************************
 Player class
 ************************************************* */
 // Implemente the member functions of the Player class here.
+Player::Player(int m)
+{
+    money = m;
+}
+
+void Player::bet(int amount)
+{
+    while (amount > money)
+    {
+        cout << "Cannot bet more money than you already have. \n";
+    }
+    money -= amount;
+}
+
+bool Player::no_more_money()
+{
+    if (money == 0)
+    {
+        return true;
+    }
+    return false;
+}

@@ -52,6 +52,12 @@ private:
 };
 
 
+ostream& operator<<(ostream& out, Card c)
+{
+    out << c.get_english_rank() << " of " << c.get_english_suit() << endl;
+    return out;
+}
+
 class Hand {
 public:
     // A vector of Cards

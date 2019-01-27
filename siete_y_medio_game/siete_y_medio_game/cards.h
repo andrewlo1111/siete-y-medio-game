@@ -56,11 +56,13 @@ class Hand {
 public:
     // A vector of Cards
     Hand();
+    void draw();
 
     // You decide what functions you'll need...
 
 private:
     // You decide what fields you'll need...
+    vector<Card> hand;
 };
 
 

@@ -190,7 +190,17 @@ bool Card::operator < (Card card2) const {
 Hand class
 ************************************************* */
 // Implemente the member functions of the Hand class here.
+Hand::Hand()
+{
+    Card first_card;
+    hand.push_back(first_card);
+}
 
+void Hand::draw()
+{
+    Card next_card;
+    hand.push_back(next_card);
+}
 
 
 

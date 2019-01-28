@@ -213,6 +213,8 @@ Player class
 Player::Player(int m)
 {
     money = m;
+    Hand start_card;
+    your_hand = start_card;
 }
 
 void Player::bet(int amount)
@@ -231,4 +233,9 @@ bool Player::no_more_money()
         return true;
     }
     return false;
+}
+
+int Player::get_money()
+{
+    return money;
 }

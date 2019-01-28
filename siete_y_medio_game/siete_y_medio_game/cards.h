@@ -52,11 +52,11 @@ private:
 };
 
 
-ostream& operator<<(ostream& out, Card c)
+/*ostream& operator<<(ostream& out, Card c)
 {
     out << c.get_english_rank() << " of " << c.get_english_suit() << endl;
     return out;
-}
+}*/
 
 class Hand {
 public:
@@ -79,11 +79,13 @@ public:
     Player(int m); 
     void bet(int amount);    //allows player to place a specific amount of money to bet
     bool no_more_money();   //returns true if player no longer has any money
+    int get_money();
 
     // You decide what functions you'll need...
 
 private:
     int money;
+    Hand your_hand;
     // You decide what extra fields (if any) you'll need...
 };
 

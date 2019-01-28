@@ -14,5 +14,6 @@ int main()
     cin >> start_amount;
     Player self(start_amount);
     cout << "You have $" << self.get_money() << endl;
+    self.disp_hand();
 
 }

@@ -184,6 +184,13 @@ bool Card::operator < (Card card2) const {
     return rank < card2.rank;
 }
 
+ostream& operator<<(ostream& out, Card c)
+{
+    out << c.get_english_rank() << " of " << c.get_english_suit();
+    return out;
+}
+
+
 
 
 /* *************************************************
@@ -202,7 +209,18 @@ void Hand::draw()
     hand.push_back(next_card);
 }
 
+int Hand::num_of_cards()
+{
+    return hand.size();
+}
 
+void Hand::disp()
+{
+    for (int i = 0; i < hand.size(); i++)
+    {
+        cout << hand[i] << endl;
+    }
+}
 
 
 
@@ -238,4 +256,9 @@ bool Player::no_more_money()
 int Player::get_money()
 {
     return money;
+}
+
+void Player::disp_hand()
+{
+    your_hand.disp();
 }

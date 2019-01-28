@@ -51,18 +51,16 @@ private:
     rank_t rank;
 };
 
+ostream& operator<<(ostream& out, Card c);
 
-/*ostream& operator<<(ostream& out, Card c)
-{
-    out << c.get_english_rank() << " of " << c.get_english_suit() << endl;
-    return out;
-}*/
 
 class Hand {
 public:
     // A vector of Cards
     Hand();
     void draw();
+    void disp();
+    int num_of_cards();
 
     // You decide what functions you'll need...
 
@@ -80,6 +78,7 @@ public:
     void bet(int amount);    //allows player to place a specific amount of money to bet
     bool no_more_money();   //returns true if player no longer has any money
     int get_money();
+    void disp_hand();
 
     // You decide what functions you'll need...
 

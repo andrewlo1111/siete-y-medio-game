@@ -175,8 +175,10 @@ string Card::get_english_rank() const {
 // Assigns a numerical value to card based on rank.
 // AS=1, DOS=2, ..., SIETE=7, SOTA=10, CABALLO=11, REY=12
 int Card::get_rank() const {
-    return static_cast<int>(rank) + 1;
+    return static_cast<int>(rank);
 }
+
+
 
 // Comparison operator for cards
 // Returns TRUE if card1 < card2
@@ -222,6 +224,15 @@ void Hand::disp()
     }
 }
 
+double Hand::total_points()
+{
+    double points = 0;
+    for (int i = 0; i < num_of_cards(); i++)
+    {
+        int rank = hand[i].get_rank();
+        points += rank;
+    }
+}
 
 
 /* *************************************************
@@ -261,4 +272,9 @@ int Player::get_money()
 void Player::disp_hand()
 {
     your_hand.disp();
+}
+
+Hand Player::get_hand()
+{
+    return your_hand;
 }

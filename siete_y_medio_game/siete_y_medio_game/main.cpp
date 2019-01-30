@@ -13,7 +13,32 @@ int main()
     cout << "How much would you like to enter the game with?" << endl;
     cin >> start_amount;
     Player self(start_amount);
-    cout << "You have $" << self.get_money() << endl;
-    self.disp_hand();
+    while (true)
+    {
+        cout << "You have $" << self.get_money() << endl;
+        cout << "How much would you like to bet?" << endl;
+        int betting_amount;
+        cin >> betting_amount;
+        self.bet(betting_amount);
+        while (true)
+        {
+            self.disp_hand();
+            string done;
+            cout << "Do you want another card? (y/n)" << endl;
+            cin >> done;
+            if (done == "n")
+            {
+                break;
+            }
+            else
+            {
+                self.get_hand().draw();
+            }
+        }
+        break;
+    }
+    
+    
+
 
 }

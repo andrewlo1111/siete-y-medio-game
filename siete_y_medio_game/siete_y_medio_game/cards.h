@@ -60,10 +60,10 @@ public:
     // A vector of Cards
     Hand();
     void draw();
-    void disp();
-    int num_of_cards();
-    double total_points();
-
+    void disp() const;
+    int num_of_cards() const;
+    double total_points() const;
+    bool bust() const;
     // You decide what functions you'll need...
 
 private:
@@ -78,10 +78,10 @@ public:
     //    Assigns initial amount of money
     Player(int m); 
     void bet(int amount);    //allows player to place a specific amount of money to bet
-    bool no_more_money();   //returns true if player no longer has any money
-    int get_money();
+    bool no_more_money() const;   //returns true if player no longer has any money
+    int get_money() const;
     Hand& get_hand();
-    void disp_hand();
+    void disp_hand() const;
 
     //void draw();
 

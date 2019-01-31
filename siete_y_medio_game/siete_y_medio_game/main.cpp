@@ -23,15 +23,23 @@ int main()
         self.bet(betting_amount);
         while (true)
         {
+            cout << "Your cards: \n";
             self.disp_hand();
+            cout << "\nYour total points is: ";
             cout << self.get_hand().total_points() << endl;
+            if (self.get_hand().bust())
+            {
+                cout << "Sorry you busted." << endl;
+                break;
+            }
             string done;
-            cout << "Do you want another card? (y/n)" << endl;
+            cout << "Do you want another card? (y/n) ";
             cin >> done;
             if (done == "n")
             {
                 break;
             }
+            cout << endl;
             self.get_hand().draw();
         }
         break;

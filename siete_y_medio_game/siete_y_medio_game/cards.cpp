@@ -221,15 +221,16 @@ Hand::Hand()
 void Hand::draw()
 {
     Card next_card;
+    cout << "New card: " << next_card << endl;
     hand.push_back(next_card);
 }
 
-int Hand::num_of_cards()
+int Hand::num_of_cards() const
 {
     return hand.size();
 }
 
-void Hand::disp()
+void Hand::disp() const
 {
     for (int i = 0; i < hand.size(); i++)
     {
@@ -237,7 +238,7 @@ void Hand::disp()
     }
 }
 
-double Hand::total_points()
+double Hand::total_points() const
 {
     double points = 0;
     for (int i = 0; i < num_of_cards(); i++)
@@ -246,6 +247,15 @@ double Hand::total_points()
         points += value;
     }
     return points;
+}
+
+bool Hand::bust() const
+{
+    if (total_points() >= 7.5)
+    {
+        return true;
+    }
+    return false;
 }
 
 
@@ -262,14 +272,18 @@ Player::Player(int m)
 
 void Player::bet(int amount)
 {
-    while (amount > money)
+    if (amount > money)
     {
         cout << "Cannot bet more money than you already have. \n";
+        int new_amount;
+        cout << "Input new amount to bet" << endl;
+        cin >> new_amount;
+        bet(new_amount);
     }
     money -= amount;
 }
 
-bool Player::no_more_money()
+bool Player::no_more_money() const
 {
     if (money == 0)
     {
@@ -278,12 +292,12 @@ bool Player::no_more_money()
     return false;
 }
 
-int Player::get_money()
+int Player::get_money() const
 {
     return money;
 }
 
-void Player::disp_hand()
+void Player::disp_hand() const
 {
     your_hand.disp();
 }

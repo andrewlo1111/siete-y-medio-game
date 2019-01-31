@@ -288,7 +288,7 @@ void Player::disp_hand()
     your_hand.disp();
 }
 
-Hand Player::get_hand()
+Hand& Player::get_hand()
 {
     return your_hand;
 }

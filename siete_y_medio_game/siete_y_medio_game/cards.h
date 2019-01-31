@@ -80,7 +80,7 @@ public:
     void bet(int amount);    //allows player to place a specific amount of money to bet
     bool no_more_money();   //returns true if player no longer has any money
     int get_money();
-    Hand get_hand();
+    Hand& get_hand();
     void disp_hand();
 
     //void draw();

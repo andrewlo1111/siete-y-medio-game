@@ -23,7 +23,6 @@ int main()
         self.bet(betting_amount);
         while (true)
         {
-            self.get_hand().draw();
             self.disp_hand();
             cout << self.get_hand().total_points() << endl;
             string done;
@@ -33,10 +32,7 @@ int main()
             {
                 break;
             }
-            else
-            {
-                self.get_hand().draw();
-            }
+            self.get_hand().draw();
         }
         break;
     }

@@ -14,9 +14,9 @@ int main()
     cout << "How much would you like to enter the game with?" << endl;
     cin >> start_amount;
     Player self(start_amount);
-    //Player dealer;
+    Player dealer;
     Hand your_hand = self.get_hand();
-    //Hand dealer_hand = dealer.get_hand();
+    Hand dealer_hand = dealer.get_hand();
 
     while (true)
     {

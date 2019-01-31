@@ -75,8 +75,8 @@ private:
 class Player {
 public:
     // Constructor. 
-    //    Assigns initial amount of money
-    Player(int m); 
+    //    Assigns initial amount of money 
+    Player(int m = 0);
     void bet(int amount);    //allows player to place a specific amount of money to bet
     bool no_more_money() const;   //returns true if player no longer has any money
     int get_money() const;

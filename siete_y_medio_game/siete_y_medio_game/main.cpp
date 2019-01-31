@@ -14,8 +14,13 @@ int main()
     cout << "How much would you like to enter the game with?" << endl;
     cin >> start_amount;
     Player self(start_amount);
+    //Player dealer;
+    Hand your_hand = self.get_hand();
+    //Hand dealer_hand = dealer.get_hand();
+
     while (true)
     {
+        //your turn
         cout << "You have $" << self.get_money() << endl;
         cout << "How much would you like to bet?" << endl;
         int betting_amount;
@@ -26,8 +31,8 @@ int main()
             cout << "Your cards: \n";
             self.disp_hand();
             cout << "\nYour total points is: ";
-            cout << self.get_hand().total_points() << endl;
-            if (self.get_hand().bust())
+            cout << your_hand.total_points() << endl;
+            if (your_hand.bust())
             {
                 cout << "Sorry you busted." << endl;
                 break;
@@ -40,8 +45,16 @@ int main()
                 break;
             }
             cout << endl;
-            self.get_hand().draw();
+            self.draw();
         }
+
+        //dealer's turn
+        /*while (dealer_hand.total_points() < 5.5)
+        {
+            cout << "Dealer's cards: " << endl;
+            dealer.draw();
+        }*/
+        
         break;
     }
     

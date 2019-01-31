@@ -306,3 +306,9 @@ Hand& Player::get_hand()
 {
     return your_hand;
 }
+
+void Player::draw()
+{
+    Hand player_hand = get_hand();
+    player_hand.draw();
+}

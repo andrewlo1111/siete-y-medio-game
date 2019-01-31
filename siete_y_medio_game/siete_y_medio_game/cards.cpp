@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 
+
 /*
 You might or might not need these two extra libraries
 #include <iomanip>
@@ -177,9 +178,9 @@ string Card::get_english_rank() const {
 int Card::get_rank() const {
     if (rank > 7)
     {
-        return static_cast<int>(rank) + 2;
+        return static_cast<int>(rank) + 3;
     }
-    return static_cast<int>(rank);
+    return static_cast<int>(rank) + 1;
 }
 
 double Card::get_value() const
@@ -241,7 +242,7 @@ double Hand::total_points()
     double points = 0;
     for (int i = 0; i < num_of_cards(); i++)
     {
-        int value = hand[i].get_value();
+        double value = hand[i].get_value();
         points += value;
     }
     return points;

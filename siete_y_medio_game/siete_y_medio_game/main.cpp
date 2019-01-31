@@ -9,6 +9,7 @@ using namespace std;
 
 int main()
 {
+    srand(time(NULL));
     int start_amount;
     cout << "How much would you like to enter the game with?" << endl;
     cin >> start_amount;
@@ -22,7 +23,9 @@ int main()
         self.bet(betting_amount);
         while (true)
         {
+            self.get_hand().draw();
             self.disp_hand();
+            cout << self.get_hand().total_points() << endl;
             string done;
             cout << "Do you want another card? (y/n)" << endl;
             cin >> done;

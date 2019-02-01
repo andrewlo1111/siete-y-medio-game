@@ -15,8 +15,8 @@ int main()
     cin >> start_amount;
     Player self(start_amount);
     Player dealer;
-    Hand your_hand = self.get_hand();
-    Hand dealer_hand = dealer.get_hand();
+    Hand* your_hand = &(self.get_hand());
+    Hand* dealer_hand = &(dealer.get_hand());
 
     while (true)
     {
@@ -31,10 +31,10 @@ int main()
             cout << "Your cards: \n";
             self.disp_hand();
             cout << "\nYour total points is: ";
-            cout << your_hand.total_points() << endl;
-            if (your_hand.bust())
+            cout << (*your_hand).total_points() << endl;
+            if ((*your_hand).bust())
             {
-                cout << "Sorry you busted." << endl;
+                cout << "Sorry you busted." << endl << endl;
                 break;
             }
             string done;
@@ -45,15 +45,19 @@ int main()
                 break;
             }
             cout << endl;
-            self.draw();
+            (*your_hand).draw();
         }
 
         //dealer's turn
-        /*while (dealer_hand.total_points() < 5.5)
+        while ((*dealer_hand).total_points() < 5.5)
         {
             cout << "Dealer's cards: " << endl;
-            dealer.draw();
-        }*/
+            dealer.disp_hand();
+            cout << (*dealer_hand).total_points() << endl << endl;
+            (*dealer_hand).draw();
+            
+        }
+        cout << (*dealer_hand).total_points() << endl;
         
         break;
     }

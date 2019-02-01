@@ -82,7 +82,7 @@ public:
     int get_money() const;
     Hand& get_hand();
     void disp_hand() const;
-    void draw();
+    //void draw();
 
     //void draw();
 

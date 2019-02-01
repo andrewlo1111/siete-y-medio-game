@@ -26,6 +26,8 @@ int main()
         int betting_amount;
         cin >> betting_amount;
         self.bet(betting_amount);
+        bool self_bust = false;
+        bool dealer_bust = false;
         while (true)
         {
             cout << "Your cards: \n";
@@ -35,6 +37,7 @@ int main()
             if ((*your_hand).bust())
             {
                 cout << "Sorry you busted." << endl << endl;
+                self_bust = true;
                 break;
             }
             string done;
@@ -59,6 +62,7 @@ int main()
         }
         cout << (*dealer_hand).total_points() << endl;
         
+
         break;
     }
     

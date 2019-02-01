@@ -309,3 +309,83 @@ Hand& Player::get_hand()
     return your_hand;
 }
 
+Hand Player::get_hand() const
+{
+    return your_hand;
+}
+
+void Player::result(const Player& dealer, int bet_amount)
+{
+    bool win;
+    Hand dealer_hand = dealer.get_hand();
+    if (your_hand.bust())
+    {
+        win = false;
+    }
+    else if (dealer.get_hand().bust())
+    {
+        win = true;
+    }
+    else
+    {
+        int pt_comp = your_hand.total_points() - dealer_hand.total_points();
+        if (pt_comp > 0)
+        {
+            win = true;
+        }
+        else if (pt_comp < 0)
+        {
+            win = false;
+        }
+        else
+        {
+            cout << "Tie has occurred" << endl;
+            return;
+        }
+    }
+
+    if (win == true)
+    {
+        cout << "You won the bet" << endl;
+        money += bet_amount;
+    }
+
+    else
+    {
+        cout << "You lost the bet" << endl;
+        money -= bet_amount;
+    }
+
+
+}
+
+Player winner(const Player& self, const Player& dealer)
+{
+    Player winner;
+    Player none;
+    Hand your_hand = self.get_hand();
+    Hand dealer_hand = dealer.get_hand();
+    if (your_hand.bust())
+    {
+        winner = dealer;
+    }
+    else if(dealer_hand.bust())
+    {
+        winner = self;
+    }
+    else
+    {
+        if (your_hand.total_points() > dealer_hand.total_points() )
+        {
+            winner = self;
+        }
+        else if (your_hand.total_points() < dealer_hand.total_points())
+        {
+            winner = dealer;
+        }
+        else
+        {
+            winner = none;
+        }
+    }
+}

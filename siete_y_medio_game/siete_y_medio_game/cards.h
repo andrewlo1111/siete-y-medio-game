@@ -81,7 +81,9 @@ public:
     bool no_more_money() const;   //returns true if player no longer has any money
     int get_money() const;
     Hand& get_hand();
+    Hand get_hand() const;
     void disp_hand() const;
+    void result(const Player& dealer, int bet_amount);
     //void draw();
 
     //void draw();
@@ -93,5 +95,8 @@ private:
     Hand your_hand;
     // You decide what extra fields (if any) you'll need...
 };
+
+Player winner(const Player& self, const Player& dealer);
+
 
 #endif

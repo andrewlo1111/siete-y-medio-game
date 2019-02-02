@@ -64,6 +64,7 @@ public:
     int num_of_cards() const;
     double total_points() const;
     bool bust() const;
+    void discard_all();
     // You decide what functions you'll need...
 
 private:
@@ -84,6 +85,7 @@ public:
     Hand get_hand() const;
     void disp_hand() const;
     void result(const Player& dealer, int bet_amount);
+    void new_hand();
     //void draw();
 
     //void draw();
@@ -96,7 +98,6 @@ private:
     // You decide what extra fields (if any) you'll need...
 };
 
-Player winner(const Player& self, const Player& dealer);
 
 
 #endif

@@ -18,7 +18,7 @@ int main()
     Hand* your_hand = &(self.get_hand());
     Hand* dealer_hand = &(dealer.get_hand());
 
-    while (self.get_money() == 0 )
+    while (self.get_money() != 0 )
     {
         //your turn
         cout << "You have $" << self.get_money() << endl;
@@ -62,6 +62,8 @@ int main()
         }
         cout << (*dealer_hand).total_points() << endl;
         self.result(dealer, betting_amount);
+        self.new_hand();
+        dealer.new_hand();
     }
     
     

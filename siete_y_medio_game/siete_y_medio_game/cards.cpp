@@ -258,6 +258,13 @@ bool Hand::bust() const
     return false;
 }
 
+void Hand::discard_all()
+{
+    while (num_of_cards() != 0)
+    {
+        hand.pop_back();
+    }
+}
 
 /* *************************************************
 Player class
@@ -340,6 +347,7 @@ void Player::result(const Player& dealer, int bet_amount)
         else
         {
             cout << "Tie has occurred" << endl;
+            money += bet_amount;                //get back money u bet
             return;
         }
     }
@@ -347,16 +355,20 @@ void Player::result(const Player& dealer, int bet_amount)
     if (win == true)
     {
         cout << "You won $" << bet_amount << endl;
-        money += bet_amount;
+        money += bet_amount * 2;                    //winnings 
     }
 
     else
     {
         cout << "You lost $" << bet_amount << endl;
-        money -= bet_amount;
     }
 
+}
 
+void Player::new_hand()
+{
+    your_hand.discard_all();
+    get_hand().draw();
 }
 
 /*Player winner(const Player& self, const Player& dealer)

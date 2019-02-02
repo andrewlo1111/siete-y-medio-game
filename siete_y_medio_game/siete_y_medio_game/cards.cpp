@@ -346,20 +346,20 @@ void Player::result(const Player& dealer, int bet_amount)
 
     if (win == true)
     {
-        cout << "You won the bet" << endl;
+        cout << "You won $" << bet_amount << endl;
         money += bet_amount;
     }
 
     else
     {
-        cout << "You lost the bet" << endl;
+        cout << "You lost $" << bet_amount << endl;
         money -= bet_amount;
     }
 
 
 }
 
-Player winner(const Player& self, const Player& dealer)
+/*Player winner(const Player& self, const Player& dealer)
 {
     Player winner;
     Player none;
@@ -388,4 +388,4 @@ Player winner(const Player& self, const Player& dealer)
             winner = none;
         }
     }
-}
+}*/

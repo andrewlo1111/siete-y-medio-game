@@ -84,7 +84,7 @@ public:
     Hand& get_hand();
     Hand get_hand() const;
     void disp_hand() const;
-    void result(const Player& dealer, int bet_amount);
+    void result(Player& dealer, int bet_amount);
     void new_hand();
     //void draw();
 

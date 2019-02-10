@@ -321,7 +321,7 @@ Hand Player::get_hand() const
     return your_hand;
 }
 
-void Player::result(const Player& dealer, int bet_amount)
+void Player::result(Player& dealer, int bet_amount)
 {
     bool win;
     Hand dealer_hand = dealer.get_hand();
@@ -348,6 +348,7 @@ void Player::result(const Player& dealer, int bet_amount)
         {
             cout << "Tie has occurred" << endl;
             money += bet_amount;                //get back money u bet
+            dealer.money -= bet_amount;
             return;
         }
     }
@@ -355,12 +356,16 @@ void Player::result(const Player& dealer, int bet_amount)
     if (win == true)
     {
         cout << "You won $" << bet_amount << endl;
-        money += bet_amount * 2;                    //winnings 
+        int winnings = bet_amount * 2;
+        money += winnings;                    //winnings 
+        dealer.money -= winnings;
     }
 
     else
     {
         cout << "You lost $" << bet_amount << endl;
+        int losings = bet_amount * 2;
+        dealer.money -= losings;
     }
 
 }

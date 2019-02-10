@@ -14,11 +14,11 @@ int main()
     cout << "How much would you like to enter the game with?" << endl;
     cin >> start_amount;
     Player self(start_amount);
-    Player dealer;
+    Player dealer(1000);
     Hand* your_hand = &(self.get_hand());
     Hand* dealer_hand = &(dealer.get_hand());
 
-    while (self.get_money() != 0 )
+    while (self.get_money() != 0 || dealer.get_money() > 0 )
     {
         //your turn
         cout << "You have $" << self.get_money() << endl;

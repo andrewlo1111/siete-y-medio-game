@@ -62,9 +62,9 @@ public:
     void draw();
     void disp() const;
     int num_of_cards() const;
-    double total_points() const;
-    bool bust() const;
-    void discard_all();
+    double total_points() const;            //returns total from hand
+    bool bust() const;                      //returns false if above 7.5 points
+    void discard_all();                     //clears hand to have 0 cards
     // You decide what functions you'll need...
 
 private:
@@ -78,14 +78,14 @@ public:
     // Constructor. 
     //    Assigns initial amount of money 
     Player(int m = 0);
-    void bet(int amount);    //allows player to place a specific amount of money to bet
-    bool no_more_money() const;   //returns true if player no longer has any money
+    void bet(int amount);           //allows player to place a specific amount of money to bet
+    bool no_more_money() const;     //returns true if player no longer has any money
     int get_money() const;
-    Hand& get_hand();
-    Hand get_hand() const;
+    Hand& get_hand();               //returns reference to player's hand
+    Hand get_hand() const;          //returns const of player's hand
     void disp_hand() const;
-    void result(Player& dealer, int bet_amount);
-    void new_hand();
+    void result(Player& dealer, int bet_amount);        //displays winner/loser and distributes money
+    void new_hand();                //new hand for new game
     //void draw();
 
     //void draw();

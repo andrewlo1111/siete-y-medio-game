@@ -183,7 +183,7 @@ int Card::get_rank() const {
     return static_cast<int>(rank) + 1;
 }
 
-double Card::get_value() const
+double Card::get_value() const                  
 {
     double value = get_rank();
     if (get_rank() >= 10)
@@ -218,7 +218,7 @@ Hand::Hand()
     hand.push_back(first_card);
 }
 
-void Hand::draw()
+void Hand::draw()  
 {
     Card next_card;
     cout << "New card: " << next_card << endl;

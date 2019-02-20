@@ -232,7 +232,8 @@ int Hand::num_of_cards() const
 
 void Hand::disp() const
 {
-    for (int i = 0; i < hand.size(); i++)
+    int size = hand.size();
+    for (int i = 0; i < size; i++)
     {
         cout << hand[i] << endl;
     }
@@ -327,7 +328,7 @@ void Player::result(Player& dealer, int bet_amount)
     }
     else
     {
-        int pt_comp = your_hand.total_points() - dealer_hand.total_points();
+        double pt_comp = your_hand.total_points() - dealer_hand.total_points();
         if (pt_comp > 0)
         {
             win = true;

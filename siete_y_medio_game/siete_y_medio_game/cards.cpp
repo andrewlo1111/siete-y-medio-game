@@ -292,14 +292,6 @@ void Player::bet(int amount)
     money -= amount;
 }
 
-bool Player::no_more_money() const
-{
-    if (money == 0)
-    {
-        return true;
-    }
-    return false;
-}
 
 int Player::get_money() const
 {
@@ -376,33 +368,3 @@ void Player::new_hand()
     get_hand().draw();
 }
 
-/*Player winner(const Player& self, const Player& dealer)
-{
-    Player winner;
-    Player none;
-    Hand your_hand = self.get_hand();
-    Hand dealer_hand = dealer.get_hand();
-    if (your_hand.bust())
-    {
-        winner = dealer;
-    }
-    else if(dealer_hand.bust())
-    {
-        winner = self;
-    }
-    else
-    {
-        if (your_hand.total_points() > dealer_hand.total_points() )
-        {
-            winner = self;
-        }
-        else if (your_hand.total_points() < dealer_hand.total_points())
-        {
-            winner = dealer;
-        }
-        else
-        {
-            winner = none;
-        }
-    }
-}*/

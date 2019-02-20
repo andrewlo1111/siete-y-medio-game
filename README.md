@@ -47,8 +47,6 @@ Card Class
     
     void bet(int amount): Player loses the amount of money they bet
       -if amount is greater than what player has, will be forced to put a smaller amount
-    
-    bool no_more_money(): returns true when player's money is 0
   
     int get_money(): returns amount of money that player has
   

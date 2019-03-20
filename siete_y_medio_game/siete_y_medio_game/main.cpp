@@ -18,7 +18,7 @@ int main()
     Hand* your_hand = &(self.get_hand());
     Hand* dealer_hand = &(dealer.get_hand());
 
-    while (self.get_money() != 0 || dealer.get_money() > 0 )   //while either player goes broke
+    while (self.get_money() > 0 || dealer.get_money() > 0 )   //while either player goes broke
     {
         //your turn
         cout << "You have $" << self.get_money() << endl;
@@ -26,6 +26,7 @@ int main()
         int betting_amount;
         cin >> betting_amount;
         self.bet(betting_amount);
+        cout << endl;
 
         while (true)
         {
@@ -36,11 +37,16 @@ int main()
             if ((*your_hand).bust())
             {
                 cout << "Sorry you busted." << endl << endl;
-                break;
+                break;                                          //automatically ends current game if busted
             }
             string done;
             cout << "Do you want another card? (y/n) ";
             cin >> done;
+            while (done != "n" && done != "y")
+            {
+                cout << "Not a valid input" << endl;            //repeatedly asks for inputs until n or y is given
+                cin >> done;
+            }
             if (done == "n")
             {
                 break;

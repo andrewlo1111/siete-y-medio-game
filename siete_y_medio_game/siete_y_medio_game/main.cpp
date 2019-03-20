@@ -26,10 +26,10 @@ int main()
         int betting_amount;
         cin >> betting_amount;
         self.bet(betting_amount);
-        cout << endl;
-
+ 
         while (true)
         {
+            cout << endl;
             cout << "Your cards: \n";
             self.disp_hand();
             cout << "\nYour total points is: ";

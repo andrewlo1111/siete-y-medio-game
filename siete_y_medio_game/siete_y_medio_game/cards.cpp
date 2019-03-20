@@ -202,6 +202,8 @@ bool Card::operator < (Card card2) const {
 ostream& operator<<(ostream& out, Card c)
 {
     out << c.get_english_rank() << " of " << c.get_english_suit();
+    out << "\nor" << endl;
+    out << c.get_spanish_rank() << " de " << c.get_spanish_suit();
     return out;
 }
 
